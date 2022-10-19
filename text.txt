@@ -11,6 +11,8 @@
 //     }
 // }
 
+
+SKAPA (C)
 // async function createProduct() { // skapa produkt
 
 //     try {
@@ -26,4 +28,31 @@
 //     catch (e) {
 //         console.log(e.message);
 //     }
+// }
+
+
+ASSIGNA OBJEKT TILL OBJEKT
+// async function assignProductToWarehouse() {
+
+//     try {
+//         const order = await Order.create ({
+        
+//             products: [await Product.findOne( { name: "Ylistalon Gröna matärter 500g – Ruokaherne" })]
+//         })
+//     }
+//     catch (e) {
+//         console.log(e.message);
+//     };
+// }
+
+
+UPPDATERA (U)
+// async function createItem() {
+
+//     try {
+//         const product = await Product.updateOne( { name: "Sauvon – Hel kryddgurka 1600g – Mausterkurkkua" }, { $set: { isInStore: false } })
+//     }
+//     catch (e) {
+//         console.log(e.message);
+//     };
 // }
