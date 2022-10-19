@@ -5,13 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <style>
-        body {
-            display: flex;
+        .card-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
         }
         .area {
             background-color: lightblue;
             border-radius: 15px;
-            width: 24vw;
+            width: 49vw;
             padding: 10px;
             margin: 10px;
         }
@@ -20,17 +21,15 @@
     <title>Logistiksystem</title>
 </head>
 <body>
-    <div class="area">
-        <h1>Lagerlokaler</h1>
-        <p>
-            <%= warehouses %>
-        </p>
-    </div>
-    <div class="area">
-        <h1>Produkter</h1>
-        <p>
-            <%= products %>
-        </p>
+    <div class="card-body">
+        <div class="area">
+            <h1>Lagerlokaler</h1>
+            <p> <%= warehouses %> </p>
+        </div>
+        <div class="area">
+            <h1>Produkter</h1>
+            <p> <%= products %> </p>
+        </div>
     </div>
 </body>
 </html>

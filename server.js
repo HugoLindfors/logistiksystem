@@ -6,45 +6,48 @@ import Warehouse from "./models/Warehouse.js"
 
 app.set("view engine", "ejs");
 
+app.use(express.json())
+
 mongoose.connect("mongodb://localhost/LogisticsSystemDB")
-
-// async function createWarehouse() { // skapa lagerlokal
-
-//     try {
-//         const warehouse = await Warehouse.create({
-//             name: < NAMN HÄR >
-//         })
-//         console.log(warehouse);
-//     }
-//     catch (e) {
-//         console.log(e.message);
-//     }
-// }
-
-// createProduct()
-
-// async function createProduct() { // skapa produkt
-
-//     try {
-//         const product = await Product.create({
-//             name: "Flux Munskölj",
-//             inStore: 76,
-//             onShelf: 37,
-//             weight: 250,
-//             price: 250,
-//         })
-//         console.log(product);
-//     }
-//     catch (e) {
-//         console.log(e.message);
-//     }
-// }
 
 app.get("/", async (req, res) => {
     
     const warehouses = await Warehouse.find();
     const products = await Product.find();
-    res.render("index", { warehouses, products });
+    res.json({ warehouses, products});
+
 });
+
+
+app.get("/warehouses", async (req, res) => {
+    
+    const warehouses = await Warehouse.find();
+    res.json({ warehouses });
+
+});
+
+app.get("/products", async (req, res) => {
+    
+    const products = await Product.find();
+    res.json({ products});
+
+});
+
+// assignProductToWarehouse()
+
+async function assignProductToWarehouse() {
+
+    try {
+        const warehouse = await Warehouse.create ({
+        
+            name: "Köpenhamn",
+            localName: "København",
+            products: [await Product.findOne( { name: "Fazer Doris Tryffel 250g kakaokex med tryffelsmakande fyllning" }), await Product.findOne( { name: "Sunnuntai 1kg glutenfri mörk mjölmix" })]
+        })
+    }
+    catch (e) {
+        console.log(e.message);
+    };
+}
 
 app.listen(5050);
