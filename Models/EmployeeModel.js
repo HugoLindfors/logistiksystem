@@ -8,14 +8,14 @@ const employeeSchema = new mongoose.Schema({
         required: true
     },
 
-    gender: {
+    sex: {
 
         type: String,
         required: true,
         lowercase: true
     },
     
-    name: {
+    age: {
 
         type: Number,
         required: true

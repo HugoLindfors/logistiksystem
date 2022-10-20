@@ -1,11 +1,11 @@
 import express from "express";
-import Employee from "..//models/Employee.js";
+import Product from "../Models/ProductModel.js";
 const router = express.Router();
 
 router.get("/", async (req, res) => {
     
-    const employees = await Employee.find();
-    res.json({ employees });
+    const products = await Product.find();
+    res.json({ products });
 
 });
 

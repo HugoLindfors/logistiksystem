@@ -8,11 +8,11 @@ const warehouseSchema = new mongoose.Schema ({
         required: true
     },
 
-    localName: {
+    products: [{ 
 
-        type: String,
-        required: false
-    },
+        product: mongoose.SchemaTypes.ObjectId,
+        quantity: Number
+    }],
 });
 
 export default mongoose.model("Warehouse", warehouseSchema);

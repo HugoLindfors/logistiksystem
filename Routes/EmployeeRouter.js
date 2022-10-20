@@ -1,11 +1,13 @@
 import express from "express";
-import Warehouse from "..//models/Warehouse.js";
+import Employee from "../Models/EmployeeModel.js";
 const router = express.Router();
 
 router.get("/", async (req, res) => {
     
-    const warehouses = await Warehouse.find();
-    res.json({ warehouses });
+    const employees = await Employee.find();
+    res.json({ employees });
 });
+
+
 
 export default router;

@@ -1,11 +1,16 @@
 import express from "express";
 import mongoose from "mongoose";
+
 const app = express();
 
-import warehouseRouter from "./routes/warehouses.js";
-import productRouter from "./routes/products.js";
-import employeeRouter from "./routes/employees.js";
-import orderRouter from "./routes/orders.js";
+import warehouseRouter from "./Routes/WarehouseRouter.js";
+import productRouter from "./Routes/ProductRouter.js";
+import employeeRouter from "./Routes/EmployeeRouter.js";
+import orderRouter from "./Routes/OrderRouter.js";
+import checkIfInStore from "./Controllers/checkIfInStore.js"
+
+checkIfInStore();
+
 
 app.set("view engine", "ejs");
 
@@ -22,4 +27,6 @@ app.get("/", async (req, res) => {
     res.render("index")
 });
 
-app.listen(5050);
+app.listen(5050, () => {
+    console.log("Click this: http://localhost:5050}")
+});
