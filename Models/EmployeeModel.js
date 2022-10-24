@@ -1,38 +1,40 @@
 import mongoose from "mongoose";
 
-const employeeSchema = new mongoose.Schema({
+const employeeSchema  =  new mongoose.Schema({
 
     name: {
 
-        type: String,
-        required: true
+        type:  String,
+        required:  true
     },
 
     sex: {
 
-        type: String,
-        required: true,
-        lowercase: true
+        type : String,
+        required : true,
+        lowercase : true
     },
     
     age: {
 
-        type: Number,
-        required: true
+        type : Number,
+        required : true
     },
 
-    schedule: {
+    weekdays: [
 
-        type: String,
-        required: true
-    },
+        {
+
+            name: String,
+        },
+    ],
 
     role: {
 
-        type: String,
-        required: true,
-        lowercase: true
+        type : String,
+        required : true,
+        lowercase : true
     },
 });
 
-export default mongoose.model("Employee", employeeSchema);
+export default mongoose.model( "Employee", employeeSchema );

@@ -10,7 +10,7 @@ const warehouseSchema = new mongoose.Schema ({
 
     products: [{ 
 
-        product: mongoose.SchemaTypes.ObjectId,
+        productId: mongoose.SchemaTypes.ObjectId,
         quantity: Number
     }],
 });

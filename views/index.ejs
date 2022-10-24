@@ -1,21 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Logistiksystem</title>
-    <style>
-        body { display: grid; grid-template-columns: repeat(4, 1fr) };
-    </style>
+    <style> .btn-body { display: grid; grid-template-columns: repeat(4, 1fr) }; </style>
 </head>
 <body>
-    <button class="btn btn-primary m-1"><a style="color: white; text-decoration: none;" href="http://localhost:5050/employees">Antsällda</a></button>
-    <button class="btn btn-primary m-1"><a style="color: white; text-decoration: none;" href="http://localhost:5050/orders">Ordrar</a></button>
-    <button class="btn btn-primary m-1"><a style="color: white; text-decoration: none;" href="http://localhost:5050/products">Produkter</a></button>
-    <button class="btn btn-primary m-1"><a style="color: white; text-decoration: none;" href="http://localhost:5050/warehouses">Lagerlokaler</a></button>
 
-    
+    <div class="btn-body">
+
+        <button class="btn btn-primary m-1"><a style="color: white; text-decoration: none;" href="http://localhost:5050/employees">Antsällda</a></button>
+        <button class="btn btn-primary m-1"><a style="color: white; text-decoration: none;" href="http://localhost:5050/orders">Ordrar</a></button>
+        <button class="btn btn-primary m-1"><a style="color: white; text-decoration: none;" href="http://localhost:5050/products">Produkter</a></button>
+        <button class="btn btn-primary m-1"><a style="color: white; text-decoration: none;" href="http://localhost:5050/warehouses">Lagerlokaler</a></button>
+    </div>
+
+    <!-- /*
+    <div class="form-group">
+
+        <input type="text" name="query" id="query" class="query form-control" placeholder="Endpoint..." />
+    </div>
+    */ -->
 </body>
 </html>

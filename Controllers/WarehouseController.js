@@ -1,6 +1,6 @@
 import Warehouse from "../Models/WarehouseModel.js";
 
-async function CreateWarehouse(name, productArray) {
+async function CreateWarehouse( name, productArray ) {
 
     Warehouse.create({
         
@@ -9,9 +9,9 @@ async function CreateWarehouse(name, productArray) {
     })
 };
 
-async function UpdateWarehouse(id, name, weight, price) {
+async function UpdateWarehouse( id, name, weight, price ) {
 
-    Warehouse.updateOne( {_id: id}, { $set: {
+    Warehouse.updateOne( { _id: id }, { $set: {
 
         name,
         weight,
@@ -19,9 +19,9 @@ async function UpdateWarehouse(id, name, weight, price) {
     }});
 };
 
-async function DeleteWarehouse(id) {
+async function DeleteWarehouse( id ) {
 
-    Warehouse.deleteOne( {_id: id} );
+    Warehouse.deleteOne( { _id: id } );
 };
 
 export default { CreateWarehouse, UpdateWarehouse, DeleteWarehouse };

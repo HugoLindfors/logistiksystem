@@ -18,6 +18,12 @@ const productSchema = new mongoose.Schema({
 
         type: Number,
         required: true
+    },
+
+    isInStock: {
+
+        type: Boolean,
+        required: false
     }
 });
 
