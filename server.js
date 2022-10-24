@@ -62,7 +62,7 @@ app.listen( 5050, () => {
 
 // AssignProductToWarehouse();
 
-ProductScan("634e935c7378815d9679b660");
+ProductScan();
 
 async function AssignProductToWarehouse() {
 
@@ -70,7 +70,7 @@ async function AssignProductToWarehouse() {
 
         name: "Karlstad"
     },
-    
+
     { 
         $set: {
 
