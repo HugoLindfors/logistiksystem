@@ -14,30 +14,6 @@ async function CreateProduct( name, weight, price ) {
     console.log( product );
 };
 
-async function ReadProduct( id ) {
-
-    const warehouses = Warehouse.find();
-    const products = Product.find();
-
-    for ( let i = 0; i < ( await warehouses).length; i++ ) {
-
-        for ( let j = 0; j < warehouses[i].products.length; j++ ) {
-
-            if (warehouses[i].products[j].quantity <= 0) {
-
-                Product.findOne( { _id: id }, { $set: { isInStock: false } } );
-                console.log("Product isn't in store.");
-            }
-
-            else {
-
-                Product.findOne( { _id: id }, { $set: { isInStock: true } } );
-                break;
-            }
-        }
-    }
-};
-
 async function UpdateProduct( id, name, weight, price ) {
 
     let product  =  await Product.updateOne( { _id: id }, { $set: {
@@ -60,13 +36,33 @@ async function DeleteProduct( id ) {
 
 async function ProductScan( id ) {
 
-    
+    let warehouses = await Warehouse.find();
+
+    for ( let i  =  0;  i  <  warehouses.length;  i++ ) {
+
+        let warehouse  =  warehouses[i];
+
+        for ( let j  =  0;  j  <  warehouse.products.length;  j++ ) {
+
+            let product = warehouse.products[j];
+
+            if ( product.quantity <= 0 ) {
+
+                await Product.updateOne( { _id: id }, { $set: { isInStore: false } } );
+            }
+
+            else {
+
+                await Product.updateOne( { _id: id }, { $set: { isInStore: true } } );
+            }
+        }
+    };
 };
 
 export { 
 
     CreateProduct,
-    ReadProduct,
     UpdateProduct,
-    DeleteProduct
+    DeleteProduct,
+    ProductScan
 };

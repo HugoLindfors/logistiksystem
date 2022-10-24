@@ -73,5 +73,5 @@ export {
     CreateEmployee,
     ReadEmployee,
     UpdateEmployee,
-    DeleteEmployee
+    DeleteEmployee,
 };

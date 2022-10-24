@@ -24,4 +24,23 @@ async function DeleteWarehouse( id ) {
     Warehouse.deleteOne( { _id: id } );
 };
 
-export default { CreateWarehouse, UpdateWarehouse, DeleteWarehouse };
+async function AssignProductToWarehouse( warehouseId, productArray ) {
+
+    productArray.forEach(element => {
+        
+    });
+
+    Warehouse.updateOne({ 
+
+        _id: warehouseId 
+    }, 
+    
+    { 
+        $set: {
+
+            
+        }
+    });
+};
+
+export default { CreateWarehouse, UpdateWarehouse, DeleteWarehouse, AssignProductToWarehouse };
