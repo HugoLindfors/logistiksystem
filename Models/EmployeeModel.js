@@ -10,7 +10,7 @@ const EMPLOYEE_SCHEMA = new mongoose.Schema({
 
     },
 
-    sex: { /// allthough commonly dismissed as political correctness or wokeness, scientifically, biological sex is different from gender
+    sex: { // allthough commonly dismissed as political correctness or wokeness, scientifically, biological sex is different from gender
 
         type: String,
         required: true,
@@ -34,7 +34,7 @@ const EMPLOYEE_SCHEMA = new mongoose.Schema({
 
     },
 
-    role: { /// roles like driver, picker and eventual future additions
+    role: { // roles like driver, picker and eventual future additions
 
         type: String,
         required: true,
