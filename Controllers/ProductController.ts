@@ -26,7 +26,7 @@ async function UpdateProduct( id, name, weight, price ) {
         }
     });
 
-    console.log( `product ${ product._id } was updated...` );
+    console.log( `product ${ product } was updated...` );
     console.log( product );
 };
 
@@ -51,14 +51,12 @@ async function ProductScan() {
             for ( let k  =  0;   k   <   produkts.length;   k++ ) {
 
                 let produkt  =  produkts[k];
-
                 let product  =  warehouse.products[j];
 
-                if ( product.quantity   <   0 ) {
+                if ( product.quantity !== undefined && product.quantity < 0 ) {
 
                     await Product.updateOne({ _id: produkt._id }, { $set: { isInStore: true } });
                 }
-
                 else {
 
                     await Product.updateOne({ _id: produkt._id }, { $set: { isInStore: false } });
@@ -68,10 +66,4 @@ async function ProductScan() {
     };
 };
 
-export {
-
-    CreateProduct,
-    UpdateProduct,
-    DeleteProduct,
-    ProductScan
-};
+export default ProductScan;

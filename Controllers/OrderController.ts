@@ -21,13 +21,13 @@ async function UpdateOrder( id, productArrayStr ) {
         }
     });
 
-    console.log( `product ${ ( product )._id } was updated...` );
+    console.log( `product ${ product } was updated...` );
     console.log( product );
 };
 
 async function DeleteOrder( id ) {
 
-    Warehouse.deleteOne( { _id: id } );
+    Order.deleteOne( { _id: id } );
 };
 
 export {
