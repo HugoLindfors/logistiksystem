@@ -1,6 +1,6 @@
 import Employee from "../Models/EmployeeModel.js";
 
-async function CreateEmployee(name: String, sex: String, age: Number, weekday: String, role: String) { // weekdayArrayStr  =  '["Monday", "Tuesday", "Wednesday", ...]'
+async function CreateEmployee(name, sex, age, weekday, role) { // weekdayArrayStr  =  '["Monday", "Tuesday", "Wednesday", ...]'
 
     if (role == null) return;
 
@@ -17,7 +17,7 @@ async function CreateEmployee(name: String, sex: String, age: Number, weekday: S
     console.log(employee);
 };
 
-async function UpdateEmployee(id: String, name: String, sex: String, age: Number, weekday: String, role: String) {
+async function UpdateEmployee(id, name, sex, age, weekday, role) {
 
     let employee = await Employee.updateOne({ _id: id }, {
         $set: {

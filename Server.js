@@ -5,12 +5,12 @@ const app = express();
 
 // imports
 
-import warehouseRouter from "./Routes/WarehouseRouter.js";
-import productRouter from "./Routes/ProductRouter.js";
-import employeeRouter from "./Routes/EmployeeRouter.js";
-import orderRouter from "./Routes/OrderRouter.js";
-import indexRouter from "./Routes/IndexRouter.js";
-import ProductScan from "./Controllers/ProductController.js";
+import warehouseRouter from "./Routes/WarehouseRouter";
+import productRouter from "./Routes/ProductRouter";
+import employeeRouter from "./Routes/EmployeeRouter";
+import orderRouter from "./Routes/OrderRouter";
+import indexRouter from "./Routes/IndexRouter";
+import ProductScan from "./Controllers/ProductController";
 
 // app
 
