@@ -1,23 +1,23 @@
 import mongoose from "mongoose";
 
-const ORDER_SCHEMA  =  new mongoose.Schema({
-    
-    name : { 
+const ORDER_SCHEMA = new mongoose.Schema({
 
-        type : String,
-        required : true,
+    name: {
+
+        type: String,
+        required: true,
     },
 
-    products : [ mongoose.SchemaTypes.ObjectId ],
+    products: [mongoose.SchemaTypes.ObjectId],
 
-    status : {
+    status: {
 
-        type : String,
+        type: String,
     }
-    
+
 });
 
-export default mongoose.model ( "Order", ORDER_SCHEMA );
+export default mongoose.model("Order", ORDER_SCHEMA);
 
 /// orders   ->   order   ->   name
 ///                       -> [ product 1, product 2, product 3, ... ]

@@ -1,11 +1,11 @@
 import Employee from "../Models/EmployeeModel.js";
 
-async function CreateEmployee( name, sex, age, weekday, role  ) { // weekdayArrayStr  =  '["Monday", "Tuesday", "Wednesday", ...]'
+async function CreateEmployee(name: String, sex: String, age: Number, weekday: String, role: String) { // weekdayArrayStr  =  '["Monday", "Tuesday", "Wednesday", ...]'
 
-    if ( role == null ) return;
+    if (role == null) return;
 
     let employee = await Employee.create({
-        
+
         name,
         sex,
         age,
@@ -13,33 +13,33 @@ async function CreateEmployee( name, sex, age, weekday, role  ) { // weekdayArra
         role
     });
 
-    console.log( `Employee ${ ( Employee ).name } was created...` );
-    console.log( employee );
+    console.log(`Employee ${(Employee).name} was created...`);
+    console.log(employee);
 };
 
-async function UpdateEmployee( id, name, sex, age, weekday, role ) {
+async function UpdateEmployee(id: String, name: String, sex: String, age: Number, weekday: String, role: String) {
 
-    if (role = null) return;
+    let employee = await Employee.updateOne({ _id: id }, {
+        $set: {
 
-    let employee = await Employee.updateOne({ _id: id }, { $set: {
-        
-        name,
-        sex,
-        age,
-        weekday,
-        role
-    }});
+            name,
+            sex,
+            age,
+            weekday,
+            role
+        }
+    });
 
     console.log(`Employee was updated...`);
     console.log(employee);
 };
 
 async function DeleteEmployee(id) {
-    await Employee.deleteOne({_id: id});
+    await Employee.deleteOne({ _id: id });
     console.log("Employee was deleted...");
 };
 
-export { 
+export {
     CreateEmployee,
     UpdateEmployee,
     DeleteEmployee
