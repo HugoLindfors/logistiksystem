@@ -1,40 +1,52 @@
 import mongoose from "mongoose";
 
-const employeeSchema  =  new mongoose.Schema({
+const EMPLOYEE_SCHEMA  =  new mongoose.Schema ( {
 
-    name: {
-
-        type:  String,
-        required:  true
-    },
-
-    sex: {
+    name : {
 
         type : String,
         required : true,
-        lowercase : true
+        lowercase : false,
+
+    },
+
+    sex : { /// allthough commonly dismissed as political correctness or wokeness, scientifically, biological sex is different from gender
+
+        type : String,
+        required : true,
+        lowercase : true,
+
     },
     
-    age: {
+    age : {
 
         type : Number,
-        required : true
+        required : true,
+        lowercase : false,
+
     },
 
-    weekdays: [
-
-        {
-
-            name: String,
-        },
-    ],
-
-    role: {
+    weekday : {
 
         type : String,
         required : true,
-        lowercase : true
-    },
-});
+        lowercase : false,
 
-export default mongoose.model( "Employee", employeeSchema );
+    },
+
+    role : { /// roles like driver, picker and eventual future additions
+
+        type : String,
+        required : true,
+        lowercase : true,
+
+    },
+} );
+
+export default mongoose.model ( "Employee", EMPLOYEE_SCHEMA );
+
+/// employees   ->   employee   ->   name
+///                             ->   sex
+///                             ->   age
+///                             ->   schedule   ->   working days   ->   working day   ->   working hours
+///                             ->   role

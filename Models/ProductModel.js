@@ -1,30 +1,35 @@
 import mongoose from "mongoose";
 
-const productSchema = new mongoose.Schema({
+const PRODUCT_SCHEMA  =  new mongoose.Schema({
 
-    name: { 
+    name : { 
 
-        type: String,
-        required: true
+        type : String,
+        required : true
     },
 
-    weight: {
+    weight : {
 
-        type: Number,
-        required: true
+        type : Number,
+        required : true
     },
 
-    price: {
+    price : {
 
-        type: Number,
-        required: true
+        type : Number,
+        required : true
     },
 
-    isInStore: {
+    isInStock: {
 
-        type: Boolean,
-        required: false
+        type : Boolean,
+        required : false,
     }
 });
 
-export default mongoose.model("Product", productSchema);
+export default mongoose.model ( "Product", PRODUCT_SCHEMA );
+
+/// products   ->   product   ->   name
+///                           ->   weight
+///                           ->   price
+///                           ->   is in stock?

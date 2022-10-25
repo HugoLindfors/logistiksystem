@@ -9,13 +9,12 @@ async function CreateWarehouse( name, productArray ) {
     })
 };
 
-async function UpdateWarehouse( id, name, weight, price ) {
+async function UpdateWarehouse( id, name, productArrayStr ) {
 
     Warehouse.updateOne( { _id: id }, { $set: {
 
         name,
-        weight,
-        price
+        products: [ JSON.parse( productArrayStr ) ]
     }});
 };
 
@@ -43,4 +42,10 @@ async function AssignProductToWarehouse( warehouseId, productArray ) {
     });
 };
 
-export default { CreateWarehouse, UpdateWarehouse, DeleteWarehouse, AssignProductToWarehouse };
+export {
+
+    CreateWarehouse,
+    UpdateWarehouse,
+    DeleteWarehouse,
+    AssignProductToWarehouse
+};

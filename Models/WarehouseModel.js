@@ -1,18 +1,23 @@
 import mongoose from "mongoose";
 
-const warehouseSchema = new mongoose.Schema ({
+const WAREHOUSE_SCHEMA  =  new mongoose.Schema ({
 
-    name: {
+    name : {
 
-        type: String,
-        required: true
+        type : String,
+        required : true,
+        lowercase : false,
     },
 
-    products: [{ 
+    products: [ { 
 
-        productId: mongoose.SchemaTypes.ObjectId,
-        quantity: Number
-    }],
-});
+        productId : mongoose.SchemaTypes.ObjectId,
+        quantity : Number,
+    } ],
+} );
 
-export default mongoose.model("Warehouse", warehouseSchema);
+export default mongoose.model( "Warehouse", WAREHOUSE_SCHEMA );
+
+/// warehouses   ->   warehouse   ->   name
+///                               ->   products   ->   product   ->   product id
+///                                                              ->   quantity

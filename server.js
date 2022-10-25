@@ -1,84 +1,30 @@
-import express from "express";
-import mongoose from "mongoose";
+import express from "express" ;
+import mongoose from "mongoose" ;
 
-const app = express();
+const app  =  express() ;
 
 import warehouseRouter from "./Routes/WarehouseRouter.js";
 import productRouter from "./Routes/ProductRouter.js";
 import employeeRouter from "./Routes/EmployeeRouter.js";
 import orderRouter from "./Routes/OrderRouter.js";
-import { CreateProduct, UpdateProduct, DeleteProduct, ProductScan } from "./Controllers/ProductController.js"; // C. R. U. D.
-import { CreateEmployee, ReadEmployee, UpdateEmployee, DeleteEmployee } from "./Controllers/EmployeeController.js";
-import WarehouseController from "./controllers/WarehouseController.js";
-import Warehouse from "./Models/WarehouseModel.js"
+import indexRouter from "./Routes/IndexRouter.js";
+import { CreateProduct, UpdateProduct, DeleteProduct, ProductScan } from "./Controllers/ProductController.js";
+import { CreateEmployee, UpdateEmployee, DeleteEmployee } from "./Controllers/EmployeeController.js";
+import { CreateWarehouse, UpdateWarehouse, DeleteWarehouse, AssignProductToWarehouse } from "./Controllers/WarehouseController.js";
 
-app.set(
+app.set ( "view engine", "ejs" );
+app.use ( express.json() );
+app.use ( "/", indexRouter );
+app.use ( "/warehouses", warehouseRouter );
+app.use ( "/products", productRouter );
+app.use ( "/employees", employeeRouter );
+app.use ( "/orders", orderRouter );
 
-    "view engine", 
-    "ejs" 
-);
+mongoose.connect ( "mongodb://localhost/LogisticsSystemDB" );
 
-app.use( 
-
-    express.json() 
-);
-
-app.use(
-
-    "/warehouses", 
-    warehouseRouter 
-);
-
-app.use(
-
-    "/products", 
-    productRouter 
-);
-
-app.use(
-
-    "/employees", 
-    employeeRouter 
-);
-
-app.use(
-
-    "/orders", 
-    orderRouter 
-);
-
-mongoose.connect( "mongodb://localhost/LogisticsSystemDB" );
-
-app.get( "/", async ( req, res ) => {
-
-    res.render( "index" );
+app.listen ( 5050, () => {
+    
+    console.log( "Server is up and running at http://localhost:5050" );
 });
-
-app.listen( 5050, () => {
-    console.log( "Click this: http://localhost:5050}" );
-});
-
-// CreateProduct( "Potatisgratäng 800g", 800, 500, false );
-
-// AssignProductToWarehouse();
 
 ProductScan();
-
-async function AssignProductToWarehouse() {
-
-    await Warehouse.updateOne({
-
-        name: "Karlstad"
-    },
-
-    { 
-        $set: {
-
-            products: [{
-
-                productId: "63567c4e4871daa2be87df63",
-                quantity: 7
-            }]
-        }
-    })
-}
