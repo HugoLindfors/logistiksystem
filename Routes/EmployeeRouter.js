@@ -1,7 +1,6 @@
 import express from "express";
 import Employee from "../Models/EmployeeModel.js";
-import router from "./WarehouseRouter.js";
-const employee = express.Router();
+const router = express.Router();
 
 router.get("/", async (req, res) => {
 
@@ -12,6 +11,7 @@ router.get("/", async (req, res) => {
 router.get("/:name", async (req, res) => {
 
     const employee = await Employee.findOne({ name: req.params.name.toLowerCase() });
+    console.log(employee);
     res.json( { employee } );
 });
 

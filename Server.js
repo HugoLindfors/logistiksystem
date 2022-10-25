@@ -11,7 +11,10 @@ import employeeRouter from "./Routes/EmployeeRouter.js";
 import orderRouter from "./Routes/OrderRouter.js";
 import indexRouter from "./Routes/IndexRouter.js";
 import ProductScan from "./Controllers/ProductController.js";
-import ProductModel from "./Models/ProductModel.js";
+import CreateEmployee from "./Controllers/EmployeeController.js";
+
+
+// CreateEmployee("Johan Kateby", "male", 47, "driver");
 
 // app
 

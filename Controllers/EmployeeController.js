@@ -1,6 +1,6 @@
 import Employee from "../Models/EmployeeModel.js";
 
-async function CreateEmployee(name, sex, age, weekday, role) { // weekdayArrayStr  =  '["Monday", "Tuesday", "Wednesday", ...]'
+async function CreateEmployee(name, sex, age, role) { // weekdayArrayStr  =  '["Monday", "Tuesday", "Wednesday", ...]'
 
     if (role == null) return;
 
@@ -9,7 +9,6 @@ async function CreateEmployee(name, sex, age, weekday, role) { // weekdayArraySt
         name,
         sex,
         age,
-        weekday,
         role
     });
 
@@ -17,7 +16,7 @@ async function CreateEmployee(name, sex, age, weekday, role) { // weekdayArraySt
     console.log(employee);
 };
 
-async function UpdateEmployee(id, name, sex, age, weekday, role) {
+async function UpdateEmployee(id, name, sex, age, role) {
 
     let employee = await Employee.updateOne({ _id: id }, {
         $set: {
@@ -25,7 +24,6 @@ async function UpdateEmployee(id, name, sex, age, weekday, role) {
             name,
             sex,
             age,
-            weekday,
             role
         }
     });
@@ -39,8 +37,4 @@ async function DeleteEmployee(id) {
     console.log("Employee was deleted...");
 };
 
-export {
-    CreateEmployee,
-    UpdateEmployee,
-    DeleteEmployee
-};
+export default CreateEmployee;

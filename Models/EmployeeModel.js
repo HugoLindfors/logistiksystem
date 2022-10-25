@@ -29,7 +29,7 @@ const EMPLOYEE_SCHEMA = new mongoose.Schema({
     weekday: {
 
         type: String,
-        required: true,
+        required: false,
         lowercase: false,
 
     },
