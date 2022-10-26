@@ -1,10 +1,12 @@
-import Order from "../Models/OrderModel";
+import Order from "../Models/OrderModel.js";
 
-async function CreateOrder(productArrayStr) {
+async function CreateOrder(name, productId, status) {
 
     let order = await Order.create({
 
-        products: [JSON.parse(productArrayStr)]
+        name,
+        productId,
+        status
     });
 
     console.log(`product ${(order)._id} was created...`);

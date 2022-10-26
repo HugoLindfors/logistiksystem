@@ -1,21 +1,22 @@
 import Employee from "../Models/EmployeeModel.js";
 
-async function CreateEmployee(firstName, lastName, sex, age, role) { // weekdayArrayStr  =  '["Monday", "Tuesday", "Wednesday", ...]'
+async function CreateEmployee(firstName, lastName, sex, age, role) {
 
     await Employee.create({
 
         firstName,
         lastName,
-        username: `${firstName}.${lastName}`.toLocaleLowerCase(),
+        username: `${firstName.replace(" ", "")}.${lastName.replace(" ", "")}`.toLocaleLowerCase(),
         sex,
         age,
-        role
+        role,
     });
 };
 
 async function UpdateEmployee(id, firstName, lastName, sex, age, role) {
 
     await Employee.updateOne({ _id: id }, {
+
         $set: {
 
             firstName,
@@ -26,9 +27,6 @@ async function UpdateEmployee(id, firstName, lastName, sex, age, role) {
             role
         }
     });
-
-    console.log(`Employee was updated...`);
-    console.log(employee);
 };
 
 async function DeleteEmployee(id) {
@@ -36,4 +34,51 @@ async function DeleteEmployee(id) {
     await Employee.deleteOne({ _id: id });
 };
 
-export { CreateEmployee, UpdateEmployee, DeleteEmployee };
+async function AssignWeekdays(id, sunday, monday, tuesday, wednesday, thursday, friday, saturday) {
+
+    await Employee.updateOne({ _id: id }, {
+
+        $set: {
+
+            schedule: {
+
+                sunday: {
+
+                    isWorking: sunday
+                },
+
+                monday: {
+
+                    isWorking: monday
+                },
+
+                tuesday: {
+
+                    isWorking: tuesday
+                },
+
+                wednesday: {
+
+                    isWorking: wednesday
+                },
+
+                thursday: {
+
+                    isWorking: thursday
+                },
+
+                friday: {
+
+                    isWorking: friday
+                },
+
+                saturday: {
+
+                    isWorking: saturday
+                },
+            }
+        }
+    });
+};
+
+export { CreateEmployee, UpdateEmployee, DeleteEmployee, AssignWeekdays };

@@ -8,7 +8,7 @@ const ORDER_SCHEMA = new mongoose.Schema({
         required: true,
     },
 
-    products: [mongoose.SchemaTypes.ObjectId],
+    productId: String,
 
     status: {
 

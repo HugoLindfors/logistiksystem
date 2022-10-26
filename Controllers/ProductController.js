@@ -66,4 +66,4 @@ async function ProductScan() {
     };
 };
 
-export default ProductScan;
+export { CreateProduct, UpdateProduct, DeleteProduct, ProductScan };
