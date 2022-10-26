@@ -2,11 +2,28 @@ import mongoose from "mongoose";
 
 const EMPLOYEE_SCHEMA = new mongoose.Schema({
 
-    name: {
+    firstName: {
 
         type: String,
         required: true,
-        lowercase: false,
+        lowercase: false
+
+    },
+
+    lastName: {
+
+        type: String,
+        required: true,
+        lowercase: false
+
+    },
+
+    username: {
+
+        type: String,
+        unique: true,
+        required: true,
+        lowercase: false
 
     },
 
@@ -14,7 +31,7 @@ const EMPLOYEE_SCHEMA = new mongoose.Schema({
 
         type: String,
         required: true,
-        lowercase: true,
+        lowercase: true
 
     },
 
@@ -22,15 +39,183 @@ const EMPLOYEE_SCHEMA = new mongoose.Schema({
 
         type: Number,
         required: true,
-        lowercase: false,
+        lowercase: false
 
     },
 
-    weekday: {
+    schedule: {
 
-        type: String,
-        required: false,
-        lowercase: false,
+        sunday: {
+
+            isWorking: {
+
+                type: Boolean,
+                required: true,
+                default: false
+            },
+
+            startTime: {
+
+                type: String,
+                default: null
+            },
+
+            endTime: {
+
+                type: String,
+                default: null
+            }
+        },
+
+        monday: {
+
+            isWorking: {
+
+                type: Boolean,
+                required: true,
+                default: true
+            },
+
+            workingHours: {
+
+                startTime: {
+
+                    type: String,
+                    default: "9 AM"
+                },
+
+                endTime: {
+
+                    type: String,
+                    default: "5 PM"
+                }
+            }
+        },
+
+        tuesday: {
+
+            isWorking: {
+
+                type: Boolean,
+                required: true,
+                default: true
+            },
+
+            workingHours: {
+
+                startTime: {
+
+                    type: String,
+                    default: "9 AM"
+                },
+
+                endTime: {
+
+                    type: String,
+                    default: "5 PM"
+                }
+            }
+        },
+
+        wednesday: {
+
+            isWorking: {
+
+                type: Boolean,
+                required: true,
+                default: true
+            },
+
+            workingHours: {
+
+                startTime: {
+
+                    type: String,
+                    default: "9 AM"
+                },
+
+                endTime: {
+
+                    type: String,
+                    default: "5 PM"
+                }
+            }
+        },
+
+        thursday: {
+
+            isWorking: {
+
+                type: Boolean,
+                required: true,
+                default: true
+            },
+
+            workingHours: {
+
+                startTime: {
+
+                    type: String,
+                    default: "9 AM"
+                },
+
+                endTime: {
+
+                    type: String,
+                    default: "5 PM"
+                }
+            }
+        },
+
+        friday: {
+
+            isWorking: {
+
+                type: Boolean,
+                required: true,
+                default: true
+            },
+
+            workingHours: {
+
+                startTime: {
+
+                    type: String,
+                    default: "9 AM"
+                },
+
+                endTime: {
+
+                    type: String,
+                    default: "5 PM"
+                }
+            }
+        },
+
+        saturday: {
+
+            isWorking: {
+
+                type: Boolean,
+                required: true,
+                default: false
+            },
+
+            workingHours: {
+
+                startTime: {
+
+                    type: String,
+                    default: null
+                },
+
+                endTime: {
+
+                    type: String,
+                    default: null
+                }
+            }
+        },
 
     },
 
@@ -38,9 +223,9 @@ const EMPLOYEE_SCHEMA = new mongoose.Schema({
 
         type: String,
         required: true,
-        lowercase: true,
+        lowercase: true
 
-    },
+    }
 });
 
 export default mongoose.model("Employee", EMPLOYEE_SCHEMA);

@@ -8,4 +8,9 @@ router.get("/", async (req, res) => {
     res.json({ warehouses });
 });
 
+router.get("/:warehouse", async (req, res) => {
+    const warehouses = await Warehouse.find( { name: req.params.warehouse });
+    res.json(warehouses);
+});
+
 export default router;

@@ -1,27 +1,26 @@
 import Employee from "../Models/EmployeeModel.js";
 
-async function CreateEmployee(name, sex, age, role) { // weekdayArrayStr  =  '["Monday", "Tuesday", "Wednesday", ...]'
+async function CreateEmployee(firstName, lastName, sex, age, role) { // weekdayArrayStr  =  '["Monday", "Tuesday", "Wednesday", ...]'
 
-    if (role == null) return;
+    await Employee.create({
 
-    let employee = await Employee.create({
-
-        name,
+        firstName,
+        lastName,
+        username: `${firstName}.${lastName}`.toLocaleLowerCase(),
         sex,
         age,
         role
     });
-
-    console.log(`Employee ${(Employee).name} was created...`);
-    console.log(employee);
 };
 
-async function UpdateEmployee(id, name, sex, age, role) {
+async function UpdateEmployee(id, firstName, lastName, sex, age, role) {
 
-    let employee = await Employee.updateOne({ _id: id }, {
+    await Employee.updateOne({ _id: id }, {
         $set: {
 
-            name,
+            firstName,
+            lastName,
+            username: `${firstName}.${lastName}`.toLocaleLowerCase(),
             sex,
             age,
             role
@@ -33,8 +32,8 @@ async function UpdateEmployee(id, name, sex, age, role) {
 };
 
 async function DeleteEmployee(id) {
+
     await Employee.deleteOne({ _id: id });
-    console.log("Employee was deleted...");
 };
 
-export default CreateEmployee;
+export { CreateEmployee, UpdateEmployee, DeleteEmployee };
