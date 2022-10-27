@@ -1,5 +1,7 @@
 # Projekt 2 - Logistiksystem / Project 2 - Logistics System
 
+Made with express, mongoose and ejs
+
 ## 🇸🇪 Instruktioner / dokumentation
 
 ### MVC + Routes
