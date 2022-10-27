@@ -28,14 +28,14 @@ This project follows the MVC model (Model-View-Controller), with an additional f
 ## Endpoints
 Every path will start with localhost:PORT, where PORT is defined by the user in Server.js,
 
-to see employees, type: */employees*
+to see employees, type: /employees
 
-for orders, type: */orders*,
+for orders, type: /orders,
 
-for products, type: */products*,
+for products, type: /products,
 
-for warehouses / storage locations, type: */warehouses*,
+for warehouses / storage locations, type: /warehouses,
 
-to see which employees work on a specific day, type: */employees/on/:weekday*, e.g. */employees/on/monday*,
+to see which employees work on a specific day, type: /employees/on/:weekday, e.g. /employees/on/monday,
 
-for employees by username, type: */employee/:username*, t.ex. *employee/sebastian.jensen*, *employee/johan.kateby*,
+for employees by username, type: /employee/:username, e.g. employee/sebastian.jensen, employee/johan.kateby,
