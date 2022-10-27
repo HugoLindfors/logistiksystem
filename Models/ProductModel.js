@@ -23,7 +23,8 @@ const PRODUCT_SCHEMA = new mongoose.Schema({
     isInStock: {
 
         type: Boolean,
-        required: false,
+        required: true,
+        default: true
     }
 });
 

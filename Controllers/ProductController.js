@@ -1,13 +1,14 @@
 import Product from "../Models/ProductModel.js";
 import Warehouse from "../Models/WarehouseModel.js";
 
-async function CreateProduct(name, weight, price) {
+async function CreateProduct(name, weight, price, isInStock) {
 
     let product = await Product.create({
 
         name,
         weight,
         price,
+        isInStock
     });
 
     console.log(`product ${product._id} was created...`);
@@ -23,6 +24,7 @@ async function UpdateProduct(id, name, weight, price) {
             name,
             weight,
             price,
+            isInStock
         }
     });
 

@@ -1,3 +1,5 @@
+const PORT = 5050;
+
 import express from "express";
 import mongoose from "mongoose";
 
@@ -18,7 +20,7 @@ import { CreateProduct, UpdateProduct, DeleteProduct, ProductScan } from "./Cont
 
 // CreateOrder( "Anna Jonsson", "635926a6b7d48bf58b8d1c0e", "completed" );
 
-// CreateProduct( "iPhone 14", "172g", "11 995 kr" );
+//CreateProduct( "Galaxy S22", "168g", "9 990 kr", false );
 
 app.set("view engine", "ejs");
 app.use(express.json());
@@ -31,7 +33,7 @@ app.use("/orders", orderRouter);
 
 mongoose.connect("mongodb://localhost/LogisticsSystemDB");
 
-app.listen(5050, () => {
+app.listen(PORT, () => {
 
     console.log("Server is up and running at http://localhost:5050");
 });
