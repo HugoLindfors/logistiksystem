@@ -13,6 +13,13 @@ const ORDER_SCHEMA = new mongoose.Schema({
     status: {
 
         type: String,
+    },
+
+    createdAt: {
+
+        type: Date,
+        required: true,
+        default: Date.now()
     }
 
 });
