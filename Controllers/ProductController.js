@@ -15,9 +15,9 @@ async function CreateProduct(name, weight, price, isInStock) {
     console.log(product);
 };
 
-async function UpdateProduct(id, name, weight, price) {
+async function UpdateProduct(name, weight, price, isInStock) {
 
-    let product = await Product.updateOne({ _id: id }, {
+    let product = await Product.updateOne({ name }, {
 
         $set: {
 

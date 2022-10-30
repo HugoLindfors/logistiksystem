@@ -39,8 +39,3 @@ app.listen(PORT, () => {
 });
 
 ProductScan();
-
-// CreateProduct("Herkkumaa gurksallad 430g", "430g", "59 kr");
-// CreateProduct("Sisu Tuima Kakkipussi konfektyrblanding 250g", "250g", "59 kr");
-// CreateProduct("Panda Juhlapöydän chokladkonfekt 300g", "300g", "88 kr");
-// CreateProduct("Karl Fazer vit choklad & mjölkchokladkaka 131g", "131g", "44 kr");
