@@ -24,7 +24,7 @@ const PRODUCT_SCHEMA = new mongoose.Schema({
 
         type: Boolean,
         required: true,
-        default: true
+        default: false
     }
 });
 
